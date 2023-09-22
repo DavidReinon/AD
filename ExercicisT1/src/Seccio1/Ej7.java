@@ -1,18 +1,19 @@
 package Seccio1;
 
 import java.io.File;
-import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Ej5 {
+public class Ej7 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Ej5-Ej6
 		String directorio;
 		File archivo;
-		File[] archivos;
+		File[] archivosFinales;
 
-		if (args.length < 1 || args.length > 2) {
+		if (args.length < 1) {
 			System.out.println("No existen argumentos de entrada.");
 			return;
 		}
@@ -25,21 +26,25 @@ public class Ej5 {
 			return;
 		}
 
-		if (args.length == 2) {
-			String extension = args[1];
-			System.out.println("(Busqueda por extension)");
-			archivos = archivo.listFiles(new FiltroExtension(extension);
+		if (args.length > 1) {
+			List<String> extensiones = new ArrayList<String>();
+			for (int i = 1; i < args.length; i++) {
+				extensiones.add(args[i]);
+			}
+			System.out.println("(Busqueda por extension/es)");
+			FiltroExtension filtroExtension = new FiltroExtension(extensiones);
+			archivosFinales = archivo.listFiles(filtroExtension);
 		} else {
 			System.out.println("(Todo el directorio)");
-			archivos = archivo.listFiles();
+			archivosFinales = archivo.listFiles();
 		}
 
-		if (archivos.length == 0) {
+		if (archivosFinales.length == 0) {
 			System.out.println("No existe ningun archivo.");
 		} else {
 			System.out.println("Archivos encontrados:");
-			for (File file : archivos) {
-				System.out.println(file.getName());
+			for (File archivoFinal : archivosFinales) {
+				System.out.println(archivoFinal.getName());
 			}
 		}
 	}

@@ -2,7 +2,7 @@ package Seccio1;
 
 import java.io.File;
 
-public class ej1 {
+public class ej1ej4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

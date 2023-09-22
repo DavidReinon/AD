@@ -2,15 +2,21 @@ package Seccio1;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.List;
 
 public class FiltroExtension implements FilenameFilter {
-	String extension;
+	List<String> extensiones;
 
-	FiltroExtension(String extension) {
-		this.extension = extension;
+	FiltroExtension(List<String> extensiones) {
+		this.extensiones = extensiones;
 	}
 
 	public boolean accept(File dir, String name) {
-		return name.endsWith(extension);
+		for (String extension : extensiones) {
+			if (name.endsWith(extension)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
