@@ -1,0 +1,39 @@
+package Seccio1;
+
+import java.io.File;
+import java.io.FilenameFilter;
+
+public class Ej5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		if (args.length == 2) {
+			String directorio = args[0];
+			File archivo = new File(directorio);
+			File[] archivos;
+			if (args.length == 1) {
+				String extension = args[1];
+				File[] archivos = archivo.listFiles(new FilenameFilter() {
+					public boolean accept(File dir, String name) {
+						return name.endsWith(extension);
+					}
+				});
+			}
+
+			if (archivos.length == 0) {
+				System.out.println("No existe ningun archivo con esta extensión.");
+			} else {
+				System.out.println("Archivos con esta extensión:");
+				for (File file : archivos) {
+					System.out.println(file.getName());
+				}
+			}
+
+		}
+
+		if (args.length == 0) {
+			System.out.println("No existen argumentos de entrada.");
+		}
+	}
+
+}

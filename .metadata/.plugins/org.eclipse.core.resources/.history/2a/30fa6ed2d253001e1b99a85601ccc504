@@ -1,0 +1,13 @@
+package Seccio1;
+import java.io.File;
+import java.io.FilenameFilter;
+
+public class ej1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		File archivo = new File(args[0])
+
+	}
+
+}
